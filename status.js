@@ -1,11 +1,11 @@
-const Gamedig = require('gamedig');
-const fetch = require('node-fetch');
-const schedule = require('node-schedule');
+import Gamedig from 'gamedig';
+import fetch from 'node-fetch';
+import { scheduleJob } from 'node-schedule';
 
 // Replace with your Minecraft server details
 const serverOptions = {
     type: 'minecraft',
-    host: 'minecraft.belanga.cloud',
+    host: 'your.minecraft.server.ip',
     port: 25565  // Default Minecraft port
 };
 
@@ -49,7 +49,7 @@ const queryServer = async () => {
 };
 
 // Schedule the task to run every 5 minutes
-schedule.scheduleJob('*/5 * * * *', queryServer);
+scheduleJob('*/5 * * * *', queryServer);
 
 // Initial call to the function
 queryServer();

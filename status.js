@@ -1,4 +1,3 @@
-import Gamedig from 'gamedig';
 import fetch from 'node-fetch';
 import { scheduleJob } from 'node-schedule';
 
@@ -14,6 +13,7 @@ const webhookURL = 'https://discord.com/api/webhooks/1241938443223695400/xHD0d6H
 
 const queryServer = async () => {
     try {
+        const Gamedig = await import('gamedig');
         const state = await Gamedig.query(serverOptions);
         console.log('Server State:', state);
 

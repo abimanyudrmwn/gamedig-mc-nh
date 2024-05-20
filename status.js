@@ -5,7 +5,7 @@ import fs from 'fs';
 // Replace with your Minecraft server details
 const serverOptions = {
     type: 'minecraft',
-    host: 'minecraft.belanga.cloud',
+    host: 'your.minecraft.server.ip',
     port: 25565  // Default Minecraft port
 };
 
@@ -47,39 +47,40 @@ const queryServer = async () => {
             }]
         };
 
+        let response;
         if (messageId) {
-            const response = await fetch(`${webhookURL}/messages/${messageId}`, {
+            response = await fetch(`${webhookURL}/messages/${messageId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(message)
             });
-
-            if (!response.ok) {
-                throw new Error(`Failed to edit webhook message: ${response.statusText}`);
-            }
-
-            console.log('Webhook message updated successfully.');
         } else {
-            const response = await fetch(webhookURL, {
+            response = await fetch(webhookURL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(message)
             });
+        }
 
-            if (!response.ok) {
-                throw new Error(`Failed to send webhook: ${response.statusText}`);
-            }
+        const responseText = await response.text();
+        console.log('Response Text:', responseText);
 
-            const responseData = await response.json();
+        if (!response.ok) {
+            throw new Error(`Failed to send or edit webhook: ${response.statusText}`);
+        }
+
+        const responseData = JSON.parse(responseText);
+
+        if (!messageId) {
             messageId = responseData.id;
             saveMessageId(messageId);
-
-            console.log('Webhook sent successfully and message ID saved.');
         }
+
+        console.log('Webhook operation completed successfully.');
     } catch (error) {
         console.error('Error querying server or sending webhook:', error);
     }

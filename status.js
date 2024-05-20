@@ -13,7 +13,7 @@ const serverOptions = {
 const webhookURL = 'https://discord.com/api/webhooks/1241938443223695400/xHD0d6HQZFs81H8IReib54uDn5aCxjmplJIDvxJ9qs3E9vqgz6pcVo0R85852wqLBJzp';
 
 // Static message ID
-const messageId = '1241950512245506093';
+const messageId = '1241951040727683193';
 
 const queryServer = async () => {
     try {

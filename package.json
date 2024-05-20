@@ -1,0 +1,24 @@
+{
+  "name": "minecraft-discord-webhook",
+  "version": "1.0.0",
+  "description": "A Node.js script to query a Minecraft server and send updates to a Discord webhook every 5 minutes.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "minecraft",
+    "discord",
+    "webhook",
+    "gamedig",
+    "server-status"
+  ],
+  "author": "abimanyudrmwn",
+  "license": "MIT",
+  "dependencies": {
+    "gamedig": "^3.0.0",
+    "node-fetch": "^3.3.0",
+    "node-schedule": "^2.1.0"
+  }
+}

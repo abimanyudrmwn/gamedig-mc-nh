@@ -4,7 +4,7 @@ import { scheduleJob } from 'node-schedule';
 // Replace with your Minecraft server details
 const serverOptions = {
     type: 'minecraft',
-    host: 'your.minecraft.server.ip',
+    host: 'minecraft.belanga.cloud',
     port: 25565  // Default Minecraft port
 };
 

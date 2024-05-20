@@ -4,7 +4,7 @@ import { scheduleJob } from 'node-schedule';
 // Replace with your Minecraft server details
 const serverOptions = {
     type: 'minecraft',
-    host: 'minecraft.belanga.cloud',
+    host: 'your.minecraft.server.ip',
     port: 25565  // Default Minecraft port
 };
 
@@ -13,7 +13,7 @@ const webhookURL = 'https://discord.com/api/webhooks/1241938443223695400/xHD0d6H
 
 const queryServer = async () => {
     try {
-        const Gamedig = await import('gamedig');
+        const { default: Gamedig } = await import('gamedig');
         const state = await Gamedig.query(serverOptions);
         console.log('Server State:', state);
 

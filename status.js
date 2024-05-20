@@ -10,7 +10,7 @@ const serverOptions = {
 };
 
 // Replace with your Discord webhook URL
-const webhookURL = 'https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN';
+const webhookURL = 'https://discord.com/api/webhooks/1241938443223695400/xHD0d6HQZFs81H8IReib54uDn5aCxjmplJIDvxJ9qs3E9vqgz6pcVo0R85852wqLBJzp';
 
 const queryServer = async () => {
     try {
